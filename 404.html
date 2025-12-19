@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta name="robots" content="noindex">
+  <script>
+    (function() {
+      var path = location.pathname.replace(/^\/AI-Coding-Course/, '');
+      var newUrl = 'https://agenticoding.ai' + path + location.search + location.hash;
+
+      // Set canonical dynamically
+      var link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = newUrl;
+      document.head.appendChild(link);
+
+      // Add meta refresh dynamically
+      var meta = document.createElement('meta');
+      meta.httpEquiv = 'refresh';
+      meta.content = '0; url=' + newUrl;
+      document.head.appendChild(meta);
+
+      // Redirect via JavaScript
+      location.replace(newUrl);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="https://agenticoding.ai/">agenticoding.ai</a>...</p>
+</body>
+</html>
