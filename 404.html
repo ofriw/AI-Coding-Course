@@ -4,29 +4,24 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://agenticoding.ai/">
+  <meta http-equiv="refresh" content="0; url=https://agenticoding.ai/">
   <script>
     (function() {
       var path = location.pathname.replace(/^\/AI-Coding-Course/, '');
       var newUrl = 'https://agenticoding.ai' + path + location.search + location.hash;
 
-      // Set canonical dynamically
-      var link = document.createElement('link');
-      link.rel = 'canonical';
-      link.href = newUrl;
-      document.head.appendChild(link);
+      // Override static canonical with dynamic one
+      document.querySelector('link[rel="canonical"]').href = newUrl;
 
-      // Add meta refresh dynamically
-      var meta = document.createElement('meta');
-      meta.httpEquiv = 'refresh';
-      meta.content = '0; url=' + newUrl;
-      document.head.appendChild(meta);
-
-      // Redirect via JavaScript
+      // Override static meta refresh (browser will use JS redirect first)
       location.replace(newUrl);
     })();
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="https://agenticoding.ai/">agenticoding.ai</a>...</p>
+  <noscript>
+    <p>Redirecting to <a href="https://agenticoding.ai/">agenticoding.ai</a>...</p>
+  </noscript>
 </body>
 </html>
